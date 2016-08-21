@@ -45,7 +45,7 @@ Wird noch ggf. angepasst.
 
 ## [Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
 
-[Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png) von [Maximilian Dörrbecker](https://de.wikipedia.org/wiki/Benutzer:Chumwa) lizenziert unter [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/deed.en)
+[Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png) von [Maximilian Dörrbecker](https://de.wikipedia.org/wiki/Benutzer:Chumwa) lizenziert unter [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/deed.en).
 
 ![Karte der Verkehrsverbünde und Tarifverbünde in Deutschland von Maximilian Dörrbecker lizenziertunter CC BY-SA 2.5](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png/489px-Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
 
