@@ -1,0 +1,1 @@
+wget --no-check-certificate -O Location_map_of_the_scope_of_the_Rhein-Main-Verkehrsverbund.svg https://upload.wikimedia.org/wikipedia/commons/f/fd/Location_map_of_the_scope_of_the_Rhein-Main-Verkehrsverbund.svg

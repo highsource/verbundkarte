@@ -1,0 +1,1 @@
+wget -O SH-Tarif-Geltungsbereich-2015web.jpg http://www.nah.sh/assets/Fahrkarten-und-Preise/SH-Tarif-Geltungsbereich-2015web.jpg

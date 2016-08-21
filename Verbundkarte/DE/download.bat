@@ -1,0 +1,1 @@
+wget -O DE-Farbvariationen.jpg http://images.zeit.de/lebensart/2012-09/d-karte-38/d-karte-38-thickbox.jpg
