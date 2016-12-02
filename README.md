@@ -14,6 +14,50 @@ Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- un
 
 ![Verfügbarkeit der Fahrpläne](Bilder/Verfügbarkeit-der-Fahrpläne.png)
 
+## Offene Fahrpläne
+
+### SWU
+
+SWU Stadtwerke Ulm/Neu-Ulm GmbH
+
+* [GTFS](https://www.swu.de/privatkunden/swu-nahverkehr/gtfs-daten.html) - offiziell, Lizenz [ODbL 1.0](http://opendatacommons.org/licenses/odbl/1.0/), Zugriff muss beantragt werden
+
+### RNV
+
+Rhein-Neckar-Verkehr GmbH
+
+* [GTFS](https://opendata.rnv-online.de/datensaetze/gtfs-general-transit-feed-specification) - offiziell, Lizenz [DL DE BY 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
+
+### VBB
+
+VBB Verkehrsverbund Berlin-Brandenburg GmbH
+
+* [GTFS](http://daten.berlin.de/datensaetze?field_tags_tid=723) - offiziell, Lizenz [CC BY 3.0 DE], kein Antrag nötig
+
+### VRR
+
+Verkehrsverbund Rhein-Ruhr AöR
+
+* [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nötig
+
+### VRS
+
+Verkehrsverbund Rhein-Sieg GmbH
+
+* [GTFS](https://www.vrsinfo.de/fahrplan/oepnv-daten-fuer-webentwickler.html) - offiziell, [Propriätere Nutzungsvereinbarung](https://www.vrsinfo.de/fileadmin/Dateien/api/NutzervereinbarungODOS.pdf), Zugriff muss beantragt werden
+
+### AVV
+
+Aachener Verkehrsverbund GmbH
+
+* [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
+
+## DB Fernverkehr
+
+DB Fernverkehr AG
+
+* [GTFS](https://github.com/fredlockheed/db-fv-gtfs/releases) - inoffiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nötig
+
 # Einrichtung
 
 Aus lizenztechnischen Gründen wird Teil des Bildmaterials nicht im Repository veröffentlich sonder muss extra herundergeladen und aufbereitet werden.
