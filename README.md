@@ -1,20 +1,20 @@
-# Karte der Verkehrs- und Tarifverbünde in Deutschland
+# Karte der Verkehrs- und TarifverbÃ¼nde in Deutschland
 
-Dieses Repository stellt die Karte der Verkehrs- und Tarifverbünde in Deutschland bereit.
+Dieses Repository stellt die Karte der Verkehrs- und TarifverbÃ¼nde in Deutschland bereit.
 
-Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- und Tarifverbünde in Vektor-Form (ShapeFiles).
+Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- und TarifverbÃ¼nde in Vektor-Form (ShapeFiles).
 
-# Übersicht
+# Ãœbersicht
 
-## Karte der Verkehrs- und Tarifverbünde
+## Karte der Verkehrs- und TarifverbÃ¼nde
 
-![Karte der Verkehrs- und Tarifverbünde](Bilder/Verbundkarte.png)
+![Karte der Verkehrs- und TarifverbÃ¼nde](Bilder/Verbundkarte.png)
 
-## Verfügbarkeit der Fahrpläne
+## VerfÃ¼gbarkeit der FahrplÃ¤ne
 
-![Verfügbarkeit der Fahrpläne](Bilder/Verfügbarkeit-der-Fahrpläne.png)
+![VerfÃ¼gbarkeit der FahrplÃ¤ne](Bilder/VerfÃ¼gbarkeit-der-FahrplÃ¤ne.png)
 
-## Offene Fahrpläne
+## Offene FahrplÃ¤ne
 
 ### SWU
 
@@ -26,41 +26,45 @@ SWU Stadtwerke Ulm/Neu-Ulm GmbH
 
 Rhein-Neckar-Verkehr GmbH
 
-* [GTFS](https://opendata.rnv-online.de/datensaetze/gtfs-general-transit-feed-specification) - offiziell, Lizenz [DL DE BY 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
+* [GTFS](https://opendata.rnv-online.de/datensaetze/gtfs-general-transit-feed-specification) - offiziell, Lizenz [DL DE BY 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nÃ¶tig
 
 ### VBB
 
 VBB Verkehrsverbund Berlin-Brandenburg GmbH
 
-* [GTFS](http://daten.berlin.de/datensaetze?field_tags_tid=723) - offiziell, Lizenz [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
+* [GTFS](http://daten.berlin.de/datensaetze?field_tags_tid=723) - offiziell, Lizenz [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nÃ¶tig
 
 ### VRR
 
-Verkehrsverbund Rhein-Ruhr AöR
+Verkehrsverbund Rhein-Ruhr AÃ¶R
 
-* [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nötig
+* [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nÃ¶tig
 
 ### VRS
 
 Verkehrsverbund Rhein-Sieg GmbH
 
-* [GTFS](https://www.vrsinfo.de/fahrplan/oepnv-daten-fuer-webentwickler.html) - offiziell, [Propriätere Nutzungsvereinbarung](https://www.vrsinfo.de/fileadmin/Dateien/api/NutzervereinbarungODOS.pdf), Zugriff muss beantragt werden
+* [GTFS](https://www.vrsinfo.de/fahrplan/oepnv-daten-fuer-webentwickler.html) - offiziell, [PropriÃ¤tere Nutzungsvereinbarung](https://www.vrsinfo.de/fileadmin/Dateien/api/NutzervereinbarungODOS.pdf), Zugriff muss beantragt werden
 
 ### AVV
 
 Aachener Verkehrsverbund GmbH
 
-* [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
+* [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nÃ¶tig
 
-## DB Fernverkehr
+## Fernverkehr
 
-DB Fernverkehr AG
+### DB Fernverkehr AG
 
-* [GTFS](https://github.com/fredlockheed/db-fv-gtfs/releases) - inoffiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nötig
+* [GTFS](https://github.com/fredlockheed/db-fv-gtfs/releases) - inoffiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nÃ¶tig
+
+### Locomore
+
+* [GTFS](https://github.com/robbi5/locomore-gtfs) - inoffiziell, gecrowdsourced, Lizenz [ODbL](http://opendatacommons.org/licenses/odbl/)
 
 # Einrichtung
 
-Aus lizenztechnischen Gründen wird Teil des Bildmaterials nicht im Repository veröffentlich sonder muss extra herundergeladen und aufbereitet werden.
+Aus lizenztechnischen GrÃ¼nden wird Teil des Bildmaterials nicht im Repository verÃ¶ffentlich sonder muss extra herundergeladen und aufbereitet werden.
 
 Das Herunterladen auf Aufbereiten ist erst sehr pragmatisch via Batch-Files gemacht.
 
@@ -87,15 +91,15 @@ Wird noch ggf. angepasst.
 
 # Quellen
 
-## [Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
+## [Karte der VerkehrsverbÃ¼nde und TarifverbÃ¼nde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
 
-[Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png) von [Maximilian Dörrbecker](https://de.wikipedia.org/wiki/Benutzer:Chumwa) lizenziert unter [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/deed.en).
+[Karte der VerkehrsverbÃ¼nde und TarifverbÃ¼nde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png) von [Maximilian DÃ¶rrbecker](https://de.wikipedia.org/wiki/Benutzer:Chumwa) lizenziert unter [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/deed.en).
 
-![Karte der Verkehrsverbünde und Tarifverbünde in Deutschland von Maximilian Dörrbecker lizenziertunter CC BY-SA 2.5](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png/489px-Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
+![Karte der VerkehrsverbÃ¼nde und TarifverbÃ¼nde in Deutschland von Maximilian DÃ¶rrbecker lizenziertunter CC BY-SA 2.5](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png/489px-Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
 
 ## [Verwaltungsgebiete 1:1.000.000](http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=17&gdz_user_id=0)
 
-[Verwaltungsgebiete 1:1.000.000](http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=17&gdz_user_id=0) © GeoBasis-DE / [BKG](http://www.bkg.bund.de/) 2016.
+[Verwaltungsgebiete 1:1.000.000](http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=17&gdz_user_id=0) Â© GeoBasis-DE / [BKG](http://www.bkg.bund.de/) 2016.
 
 ## [Interaktive Verbundkarte](http://kursbuch.bahn.de/hafas/kbview.exe/dn?rt=1&mainframe=IK_verbund) vom [Elektronischen Kursbuch](http://kursbuch.bahn.de/)
 
