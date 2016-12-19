@@ -16,6 +16,11 @@ Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- un
 
 ## Offene Fahrpläne
 
+Links:
+
+* [transit.land](https://transit.land/feed-registry/?country=Germany&sort_key=country)
+* 
+
 ### SWU
 
 SWU Stadtwerke Ulm/Neu-Ulm GmbH
@@ -52,15 +57,19 @@ Aachener Verkehrsverbund GmbH
 
 * [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
 
-## Fernverkehr
+## Transportunternehmen
 
 ### DB Fernverkehr AG
 
 * [GTFS](https://github.com/fredlockheed/db-fv-gtfs/releases) - inoffiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nötig
 
+### Flixbus
+
+* [GTFS](https://meinfernbus.de/gtfs-schnittstelle.html) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
+
 ### Locomore
 
-* [GTFS](https://github.com/robbi5/locomore-gtfs) - inoffiziell, gecrowdsourced, Lizenz [ODbL](http://opendatacommons.org/licenses/odbl/)
+* [GTFS](https://github.com/robbi5/locomore-gtfs) - inoffiziell, gecrowdsourced, Lizenz [ODbL](http://opendatacommons.org/licenses/odbl/), kein Antrag nötig
 
 # Einrichtung
 
