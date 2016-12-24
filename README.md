@@ -57,6 +57,18 @@ Aachener Verkehrsverbund GmbH
 
 * [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
 
+### VRT
+
+Verkehrsverbund Region Trier
+
+* [VDV 452](http://www.vrt-info.de/opendata.php) - offiziell, Lizenz [Datenlizenz Deutschland Namensnennung](https://www.govdata.de/dl-de/by-2-0), Zugriff muss beantragt werden
+
+### VRN
+
+Verkehrsverbund Rhein-Neckar
+
+* [VDV 452](https://www.vrn.de/service/entwickler/open-data/index.html) - offiziell, Lizenz [Datenlizenz Deutschland Namensnennung](https://www.govdata.de/dl-de/by-2-0), Zugriff muss beantragt werden
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
