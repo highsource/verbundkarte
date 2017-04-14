@@ -19,7 +19,7 @@ Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- un
 Links:
 
 * [transit.land](https://transit.land/feed-registry/?country=Germany&sort_key=country)
-* 
+* [transitfeeds.com](http://transitfeeds.com/)
 
 ### SWU
 
@@ -55,6 +55,7 @@ Verkehrsverbund Rhein-Sieg GmbH
 
 Aachener Verkehrsverbund GmbH
 
+* [GTFS](http://data.ndovloket.nl/avv/) - [Gemeinfrei](http://data.ndovloket.nl/avv/lizenz_und_readme.txt)
 * [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
 
 ### VRT
