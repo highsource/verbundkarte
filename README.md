@@ -55,6 +55,7 @@ Verkehrsverbund Rhein-Sieg GmbH
 
 Aachener Verkehrsverbund GmbH
 
+* [GTFS](http://data.ndovloket.nl/avv/) - [Gemeinfrei](http://data.ndovloket.nl/avv/lizenz_und_readme.txt)
 * [DINO](http://data.ndovloket.nl/avv/) - inoffiziell, unklare Lizenz, kein Antrag nötig
 
 ### VRT
