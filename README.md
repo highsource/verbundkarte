@@ -71,6 +71,18 @@ Verkehrsverbund Rhein-Neckar
 
 * [VDV 452](https://www.vrn.de/service/entwickler/open-data/index.html) - offiziell, Lizenz [Datenlizenz Deutschland Namensnennung](https://www.govdata.de/dl-de/by-2-0), Zugriff muss beantragt werden
 
+### HVV
+
+Hamburger Verkehrsverbund
+
+* [GTFS](http://suche.transparenz.hamburg.de/dataset/hvv-fahrplandaten-gtfs-september-2017-bis-dezember-2017) - offiziell, Lizenz [DL DE BY 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
+
+### KVV
+
+Karlsruher Verkehrsverbund
+
+* [GTFS](https://www.kvv.de/fahrplanauskunft/fahrplanauskunft-efa/opendata.html) – offiziell, Lizenz unklar, kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
