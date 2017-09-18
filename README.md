@@ -139,3 +139,5 @@ Wird noch ggf. angepasst.
 ## [Interaktive Verbundkarte](http://kursbuch.bahn.de/hafas/kbview.exe/dn?rt=1&mainframe=IK_verbund) vom [Elektronischen Kursbuch](http://kursbuch.bahn.de/)
 
 Das Urheberrecht an den Kartendaten liegt bei DB Netz AG, I.NVT 52 (V).
+
+## [Weltkarte](http://www.naturalearthdata.com/features/) von [Naturalearth](http://www.naturalearthdata.com)
