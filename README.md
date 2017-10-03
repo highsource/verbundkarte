@@ -83,6 +83,12 @@ Karlsruher Verkehrsverbund
 
 * [GTFS](https://www.kvv.de/fahrplanauskunft/fahrplanauskunft-efa/opendata.html) – offiziell, Lizenz unklar, kein Antrag nötig
 
+### VGN
+
+Ver­kehrs­ver­bund Groß­raum Nürn­berg
+
+* [GTFS](https://www.vgn.de/web-entwickler/open-data/) – offiziell, [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
