@@ -95,6 +95,10 @@ Ver­kehrs­ver­bund Groß­raum Nürn­berg
 
 * [GTFS](https://github.com/fredlockheed/db-fv-gtfs/releases) - inoffiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nötig
 
+### S-Bahn Stuttgart
+
+* [GTFS](http://data.deutschebahn.com/dataset/data-s-bahn-stuttgart-gtfs) - offiziell, Lizenz [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), kein Antrag nötig
+
 ### Flixbus
 
 * [GTFS](https://meinfernbus.de/gtfs-schnittstelle.html) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
