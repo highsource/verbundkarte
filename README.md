@@ -89,6 +89,12 @@ Ver­kehrs­ver­bund Groß­raum Nürn­berg
 
 * [GTFS](https://www.vgn.de/web-entwickler/open-data/) – offiziell, [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
 
+### LVB
+
+Leipziger Verkehrsbetriebe
+
+* [GTFS](https://opendata.leipzig.de/dataset/lvb-fahrplandaten) – offiziell, [Datenlizenz Deutschland Namensnennung 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
