@@ -44,7 +44,7 @@ VBB Verkehrsverbund Berlin-Brandenburg GmbH
 Verkehrsverbund Rhein-Ruhr AöR
 
 * [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nötig
-* [DINO](https://www.openvrr.de/dataset/dino-daten) - offiziell, gleiche [Lizenz wie API](https://www.openvrr.de/pages/nutzungsbedingungen)?, kein Antrag nötig
+* [DINO](https://www.openvrr.de/dataset/dino-daten) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
 ### VRS
 
