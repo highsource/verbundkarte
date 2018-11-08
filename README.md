@@ -38,6 +38,7 @@ Rhein-Neckar-Verkehr GmbH
 VBB Verkehrsverbund Berlin-Brandenburg GmbH
 
 * [GTFS](http://daten.berlin.de/datensaetze?field_tags_tid=723) - offiziell, Lizenz [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
+* [GTFS](https://www.opendata-oepnv.de/dataset/soll-fahrplandaten-vbb) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
 ### VRR
 
