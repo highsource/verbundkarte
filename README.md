@@ -103,6 +103,13 @@ Leipziger Verkehrsbetriebe
 
 * [GTFS](https://opendata.leipzig.de/dataset/lvb-fahrplandaten) – offiziell, [Datenlizenz Deutschland Namensnennung 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
 
+### VVS
+
+Verkehrs- und Tarifverbund Stuttgart
+
+* [GTFS](https://www.opendata-oepnv.de/dataset/soll-fahrplandaten-vvs) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
+* [GTFS](https://www.openvvs.de/dataset/gtfs-daten) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
