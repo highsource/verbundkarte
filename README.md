@@ -44,7 +44,8 @@ VBB Verkehrsverbund Berlin-Brandenburg GmbH
 Verkehrsverbund Rhein-Ruhr AöR
 
 * [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nötig
-* [DINO](https://www.openvrr.de/dataset/dino-daten) - offiziell, gleiche [Lizenz wie API](https://www.openvrr.de/pages/nutzungsbedingungen)?, kein Antrag nötig
+* [DINO](https://www.openvrr.de/dataset/dino-daten) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
+* [GTFS](https://www.openvrr.de/dataset/gtfs) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
 ### VRS
 
@@ -93,7 +94,13 @@ Ver­kehrs­ver­bund Groß­raum Nürn­berg
 
 Mitteldeutscher Verkehrsverbund
 
-* [GTFS](https://www.mdv.de/service/downloads/?search=&taxonomy=244&filter=) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
+* [GTFS](https://www.mdv.de/service/downloads/?taxonomy=244) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
+
+### LVB
+
+Leipziger Verkehrsbetriebe
+
+* [GTFS](https://opendata.leipzig.de/dataset/lvb-fahrplandaten) – offiziell, [Datenlizenz Deutschland Namensnennung 2.0](https://www.govdata.de/dl-de/by-2-0), kein Antrag nötig
 
 ## Transportunternehmen
 
