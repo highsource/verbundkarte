@@ -111,6 +111,12 @@ Verkehrs- und Tarifverbund Stuttgart
 * [GTFS](https://www.opendata-oepnv.de/dataset/soll-fahrplandaten-vvs) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 * [GTFS](https://www.openvvs.de/dataset/gtfs-daten) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
+### MVV
+
+Münchner Verkehrs- und Tarifverbund
+
+* [GTFS](https://www.opendata-oepnv.de/dataset/soll-fahrplandaten-mvv) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
