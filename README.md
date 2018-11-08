@@ -45,6 +45,7 @@ Verkehrsverbund Rhein-Ruhr AöR
 
 * [DINO](http://data.ndovloket.nl/vrr/) - inoffiziell, unklare Lizenz, kein Antrag nötig
 * [DINO](https://www.openvrr.de/dataset/dino-daten) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
+* [GTFS](https://www.openvrr.de/dataset/gtfs) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
 ### VRS
 
