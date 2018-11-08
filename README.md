@@ -90,6 +90,12 @@ Ver­kehrs­ver­bund Groß­raum Nürn­berg
 
 * [GTFS](https://www.vgn.de/web-entwickler/open-data/) – offiziell, [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
 
+### MDV
+
+Mitteldeutscher Verkehrsverbund
+
+* [GTFS](https://www.mdv.de/service/downloads/?taxonomy=244) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
+
 ### LVB
 
 Leipziger Verkehrsbetriebe
