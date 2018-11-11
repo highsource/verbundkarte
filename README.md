@@ -117,6 +117,12 @@ Münchner Verkehrs- und Tarifverbund
 
 * [GTFS](https://www.opendata-oepnv.de/dataset/soll-fahrplandaten-mvv) - offiziell, Lizenz [CC BY](http://www.opendefinition.org/licenses/cc-by) (keine Version angegeben), kein Antrag nötig
 
+### VMT
+
+Verkehrsgemeinschaft Mittelthüringen
+
+* [GTFS](https://www.vmt-thueringen.de/auskunft/open-data/) - offiziell, Lizenz [CC BY-ND 2.0](https://creativecommons.org/licenses/by-nd/2.0/de/), kein Antrag nötig
+
 ## Transportunternehmen
 
 ### DB Fernverkehr AG
