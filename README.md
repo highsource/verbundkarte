@@ -174,7 +174,7 @@ Wird noch ggf. angepasst.
 
 [Karte der Verkehrsverbünde und Tarifverbünde in Deutschland](https://commons.wikimedia.org/wiki/File:Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png) von [Maximilian Dörrbecker](https://de.wikipedia.org/wiki/Benutzer:Chumwa) lizenziert unter [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/deed.en).
 
-![Karte der Verkehrsverbünde und Tarifverbünde in Deutschland von Maximilian Dörrbecker lizenziertunter CC BY-SA 2.5](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png/489px-Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
+![Karte der Verkehrsverbünde und Tarifverbünde in Deutschland von Maximilian Dörrbecker lizenziert unter CC BY-SA 2.5](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png/489px-Karte_der_Verkehrsverb%C3%BCnde_und_Tarifverb%C3%BCnde_in_Deutschland.png)
 
 ## [Verwaltungsgebiete 1:1.000.000](http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=17&gdz_user_id=0)
 
@@ -183,5 +183,23 @@ Wird noch ggf. angepasst.
 ## [Interaktive Verbundkarte](http://kursbuch.bahn.de/hafas/kbview.exe/dn?rt=1&mainframe=IK_verbund) vom [Elektronischen Kursbuch](http://kursbuch.bahn.de/)
 
 Das Urheberrecht an den Kartendaten liegt bei DB Netz AG, I.NVT 52 (V).
+
+## Verbundkarten
+
+* [Bayern](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_bayern.shtml)
+* [Berlin und Brandenburg](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_b_brdg.shtml)
+* [Niedersachsen und Bremen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_niedersachsen.shtml)
+* [Hessen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_hessen.shtml)
+* [Mecklenburg-Vorpommern](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_meckpomm.shtml)
+* [Nordrhein-Westfalen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_nrw.shtml)
+* [Rheinland-Pfalz](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_rheinland_pfalz.shtml)
+* [Saarland](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_saarland.shtml)
+* [Sachsen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_sachsen.shtml)
+* [Sachsen-Anhalt](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_s_anhalt.shtml)
+* [Schleswig-Holstein und Hamburg](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_sh_hamburg.shtml)
+* [Thüringen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_thueringen.shtml)
+
+Baden-Württemberg fehlt leider.
+
 
 ## [Weltkarte](http://www.naturalearthdata.com/features/) von [Naturalearth](http://www.naturalearthdata.com)
