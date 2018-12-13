@@ -73,6 +73,7 @@ Verkehrsverbund Region Trier
 Verkehrsverbund Rhein-Neckar
 
 * [VDV 452](https://www.vrn.de/service/entwickler/open-data/index.html) - offiziell, Lizenz [Datenlizenz Deutschland Namensnennung](https://www.govdata.de/dl-de/by-2-0), Zugriff muss beantragt werden
+* [GTFS](https://www.vrn.de/service/entwickler/gtfs/index.html) - offiziell, Lizenz [Datenlizenz Deutschland Namensnennung](https://www.govdata.de/dl-de/by-2-0), Zugriff muss beantragt werden
 
 ### HVV
 
