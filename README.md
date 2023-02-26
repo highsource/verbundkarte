@@ -165,9 +165,9 @@ Verbundkarte\DE\SH\download.bat
 ```
 ## Neu: Erstellung via Python
 
-* via `pip install geopandas` Geopandas installieren
+* via `pip install -r requirements.txt` Geopandas und SPARQLWrapper installieren
 * via `python3 merge.py` aufrufen, welches Informationen den CSV-Dateien `data/assignments.csv` und `data/authorities.csv` mit adhoc vom BKG herunterladenen 
-Geometrie-Informationen zusammenführt. Ergebnis wird nach `out/authorities_enhanced.csv` geschrieben. Hinweis: die Verwaltungsgrenzen unterliegen der DE-DL/BY-2.0, Quellenvermerk '© GeoBasis-DE / BKG (<Jahr des Bezugs>)'
+Geometrie-Informationen zusammenführt. Ergebnis wird nach `out/authorities_enhanced.csv` geschrieben. Hinweis: die Verwaltungsgrenzen unterliegen der DE-DL/BY-2.0, Quellenvermerk `© GeoBasis-DE / BKG (<Jahr des Bezugs>)`
 * via QGIS kann eine Kartendarstellung (vorerst manuell) erzeugt und gespeichert werden. 
 
 # Lizenz
