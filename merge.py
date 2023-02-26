@@ -1,6 +1,7 @@
-import pandas as pd
+from SPARQLWrapper import get_sparql_dataframe
 import geopandas as gpd
 import os
+import pandas as pd
 import urllib.request
 
 CACHE_DIR = '.cache'
@@ -26,6 +27,29 @@ def setup():
 	assert_dir_exists(CACHE_DIR)
 	download_if_not_chached(CACHED_VG250_PATH, VG250_URL)
 
+def get_wikidata_frame():
+
+	endpoint = "https://query.wikidata.org/sparql"
+
+	q = """
+	    SELECT ?td ?tdLabel ?officalWebsite ?shortName ?twitterUserName ?linkedInOrgId
+	    WHERE
+	    {
+	    # ?td isInstance transit district
+	      ?td wdt:P31 wd:Q7835189.
+	      ?td wdt:P17 wd:Q183.
+	      OPTIONAL {?td wdt:P856 ?officalWebsite}
+	      OPTIONAL {?td wdt:P1813 ?shortName}
+	      OPTIONAL {?td wdt:P2002 ?twitterUserName}
+	      OPTIONAL {?td wdt:P4264 ?linkedInOrgId}
+	      SERVICE wikibase:label { bd:serviceParam wikibase:language "de". }
+	    }
+	"""
+
+	df = get_sparql_dataframe(endpoint, q)
+	df.td = df.td.str.replace('http://www.wikidata.org/entity/' , '', regex=True)
+	return df
+
 def merge():
 	"""
 	Joins authorities, their operating areas and corresponding shapes
@@ -39,9 +63,10 @@ def merge():
 	gf4_districts = all_districts[(all_districts.gf==VG250_GEOFAKTOR_LAND_MIT_STRUKTUR)]
 
 	# Merge districts with assignments. Note, that to keep GeoDataFrame, we use merge called on gf4_districts
-	assignments_with_geometries = gf4_districts.merge(assignments, right_on="kreis", left_on="ars").filter(items=['kreis','org','geometry'])
+	assignments_with_geometries = gf4_districts.merge(assignments, right_on='kreis', left_on='ars').filter(items=['kreis','org','geometry'])
 	assignments_with_geometries_grouped_by_org = assignments_with_geometries.dissolve(by='org')
-	authorities_with_geometries = assignments_with_geometries_grouped_by_org.merge(authorities, how="outer", on="org")
+	authorities_with_geometries = assignments_with_geometries_grouped_by_org.merge(authorities, how='outer', on='org')
+	authorities_with_geometries = authorities_with_geometries.merge(get_wikidata_frame(), how='left', left_on='wikidata', right_on='td')
 	authorities_with_geometries.to_file(ENHANCED_AUTHORITIES_PATH, driver='GeoJSON')
 
 setup()
