@@ -2,7 +2,7 @@
 
 Dieses Repository stellt die Karte der Verkehrs- und Tarifverbünde in Deutschland bereit.
 
-Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- und Tarifverbünde in Vektor-Form (ShapeFiles).
+Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- und Tarifverbünde in Vektor-Form (ShapeFiles bzw. zukünftig GeoJSON).
 
 # Übersicht
 
@@ -20,6 +20,7 @@ Links:
 
 * [transit.land](https://transit.land/feed-registry/?country=Germany&sort_key=country)
 * [transitfeeds.com](http://transitfeeds.com/)
+* [gtfs.mfdz.de](https://gtfs.mfdz.de/) (Links zu Feeds inkl. Lizenzangabe und ggf. Quellenvermerk)
 
 ### SWU
 
@@ -89,7 +90,7 @@ Karlsruher Verkehrsverbund
 
 ### VGN
 
-Ver­kehrs­ver­bund Groß­raum Nürn­berg
+Verkehrsverbund Großraum Nürnberg
 
 * [GTFS](https://www.vgn.de/web-entwickler/open-data/) – offiziell, [CC BY 3.0 DE](https://creativecommons.org/licenses/by/3.0/de/), kein Antrag nötig
 
@@ -162,6 +163,12 @@ Verbundkarte\DE\download.bat
 Verbundkarte\DE\HE\download.bat
 Verbundkarte\DE\SH\download.bat
 ```
+## Neu: Erstellung via Python
+
+* via `pip install geopandas` Geopandas installieren
+* via `python3 merge.py` aufrufen, welches Informationen den CSV-Dateien `data/assignments.csv` und `data/authorities.csv` mit adhoc vom BKG herunterladenen 
+Geometrie-Informationen zusammenführt. Ergebnis wird nach `out/authorities_enhanced.csv` geschrieben. Hinweis: die Verwaltungsgrenzen unterliegen der DE-DL/BY-2.0, Quellenvermerk '© GeoBasis-DE / BKG (<Jahr des Bezugs>)'
+* via QGIS kann eine Kartendarstellung (vorerst manuell) erzeugt und gespeichert werden. 
 
 # Lizenz
 
