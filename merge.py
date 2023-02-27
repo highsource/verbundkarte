@@ -1,9 +1,13 @@
 from SPARQLWrapper import get_sparql_dataframe
+# for now, import SPARQLWrapper as well, to redefine __agent__:
+import SPARQLWrapper 
+
 import geopandas as gpd
 import os
 import pandas as pd
 import urllib.request
 
+USER_AGENT = "github.com/highsource/verbundkarte/0.0.1"
 CACHE_DIR = '.cache'
 OUT_DIR = 'out'
 # WFS Service: https://sgx.geodatenzentrum.de/wfs_vg250-ew?REQUEST=GetCapabilities&SERVICE=WFS
@@ -46,7 +50,12 @@ def get_wikidata_frame():
 	    }
 	"""
 
+	# TODO In case https://github.com/RDFLib/sparqlwrapper/pull/225 is merged
+	# these two lines may be replaced by the param version below
+	SPARQLWrapper.__agent__ = USER_AGENT
 	df = get_sparql_dataframe(endpoint, q)
+	# df = get_sparql_dataframe(endpoint, q, USER_AGENT)
+	
 	df.td = df.td.str.replace('http://www.wikidata.org/entity/' , '', regex=True)
 	return df
 
