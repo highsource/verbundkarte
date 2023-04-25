@@ -1,2 +1,4 @@
 *.qgs~
 .project
+out/
+.cache/
