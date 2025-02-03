@@ -97,7 +97,7 @@ Ver­kehrs­ver­bund Groß­raum Nürn­berg
 
 Mitteldeutscher Verkehrsverbund
 
-* [GTFS](https://www.mdv.de/service/downloads/?taxonomy=244) - offiziell, Lizenz unklar, Zugriff muss beantragt werden
+* [GTFS](https://www.mdv.de/downloads/) - offiziell, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode), kein Antrag nötig
 
 ### LVB
 
