@@ -22,14 +22,14 @@ def assert_dir_exists(path):
 	if not os.path.exists(path):
 		os.mkdir(path)
 
-def download_if_not_chached(path, url):
+def download_if_not_cached(path, url):
 	if not os.path.exists(path):
 		urllib.request.urlretrieve(url, path)
 
 def setup():
 	assert_dir_exists(OUT_DIR)
 	assert_dir_exists(CACHE_DIR)
-	download_if_not_chached(CACHED_VG250_PATH, VG250_URL)
+	download_if_not_cached(CACHED_VG250_PATH, VG250_URL)
 
 def get_wikidata_frame():
 
