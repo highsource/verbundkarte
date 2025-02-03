@@ -11,7 +11,7 @@ USER_AGENT = "github.com/highsource/verbundkarte/0.0.1"
 CACHE_DIR = '.cache'
 OUT_DIR = 'out'
 # WFS Service: https://sgx.geodatenzentrum.de/wfs_vg250-ew?REQUEST=GetCapabilities&SERVICE=WFS
-VG250_URL = 'https://sgx.geodatenzentrum.de/wfs_vg250-ew?REQUEST=GetFeature&SERVICE=WFS&VERSION=2.0.0&outputFormat=json&typeNames=vg250-ew:vg250_krs'
+VG250_URL = 'https://sgx.geodatenzentrum.de/wfs_vg250-ew?REQUEST=GetFeature&SERVICE=WFS&VERSION=2.0.0&outputFormat=json&typeNames=vg250-ew:vg250_krs&srsName=EPSG:4326&'
 AUTHORITIES_FILE = 'data/authorities.csv'
 ASSIGNMENTS_FILE = 'data/assignments.csv'
 CACHED_VG250_PATH = os.path.join(CACHE_DIR, 'vg250_krs.json')
