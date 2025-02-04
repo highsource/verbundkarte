@@ -192,22 +192,4 @@ Wird noch ggf. angepasst.
 
 Das Urheberrecht an den Kartendaten liegt bei DB Netz AG, I.NVT 52 (V).
 
-## Verbundkarten
-
-* [Bayern](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_bayern.shtml)
-* [Berlin und Brandenburg](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_b_brdg.shtml)
-* [Niedersachsen und Bremen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_niedersachsen.shtml)
-* [Hessen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_hessen.shtml)
-* [Mecklenburg-Vorpommern](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_meckpomm.shtml)
-* [Nordrhein-Westfalen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_nrw.shtml)
-* [Rheinland-Pfalz](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_rheinland_pfalz.shtml)
-* [Saarland](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_saarland.shtml)
-* [Sachsen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_sachsen.shtml)
-* [Sachsen-Anhalt](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_s_anhalt.shtml)
-* [Schleswig-Holstein und Hamburg](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_sh_hamburg.shtml)
-* [Thüringen](https://www.bahn.de/p/view/service/fahrrad/verbundkarte_thueringen.shtml)
-
-Baden-Württemberg fehlt leider.
-
-
 ## [Weltkarte](http://www.naturalearthdata.com/features/) von [Naturalearth](http://www.naturalearthdata.com)
