@@ -2,3 +2,5 @@
 .project
 out/
 .cache/
+
+/.venv
