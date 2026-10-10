@@ -62,6 +62,9 @@ def get_wikidata_frame():
     df = get_sparql_dataframe(endpoint, q)
     # df = get_sparql_dataframe(endpoint, q, USER_AGENT)
 
+    # Keep one result per authority to prevent duplicate features in the output.
+    df = df.drop_duplicates(subset=['td'])
+
     df.td = df.td.str.replace('http://www.wikidata.org/entity/' , '', regex=True)
     return df
 
