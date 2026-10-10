@@ -4,6 +4,8 @@ Dieses Repository stellt die Karte der Verkehrs- und Tarifverbünde in Deutschla
 
 Es bietet ein [QGIS](http://www.qgis.org/)-Projekt mit Geodaten der Verkehrs- und Tarifverbünde in Vektor-Form (ShapeFiles bzw. zukünftig GeoJSON).
 
+Dieses Projekt wurde von [Alexey Valikov (🕯️)](https://good-bye.org/alexey-valikov/) als Weiterentwicklung von [UlmApi/verbundkarte](https://github.com/UlmApi/verbundkarte) gestartet. Mittlerweile wird es von der Open-Transport-Community gepflegt.
+
 # Übersicht
 
 ## Karte der Verkehrs- und Tarifverbünde
