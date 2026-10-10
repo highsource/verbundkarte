@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verkehrs- und Tarifverbünde in Deutschland</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        .basemap-light {
+            filter: grayscale(1) brightness(1.08) contrast(0.85);
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .info {
+            padding: 10px 14px;
+            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            max-width: 300px;
+        }
+
+        .info h4 {
+            margin: 0 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .info p {
+            margin: 4px 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .info a:hover {
+            text-decoration: underline;
+        }
+
+        .legend {
+            padding: 10px 14px;
+            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            line-height: 24px;
+            min-width: 180px;
+        }
+
+        .legend h4 {
+            margin: 0 0 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 4px 0;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .legend-item:hover {
+            background: #f5f5f5;
+        }
+
+        .legend-item.disabled {
+            opacity: 0.4;
+        }
+
+        .legend-item input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 14px;
+            margin-right: 8px;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .legend-count {
+            margin-left: 4px;
+            color: #555;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+
+        .popup-content h3 {
+            margin: 0 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .popup-content p {
+            margin: 4px 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .popup-content .type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .popup-content .links {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .popup-content .links a {
+            display: inline-block;
+            margin-right: 12px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        .loading-overlay.hidden {
+            display: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0066cc;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 16px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .about-box {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            max-width: 280px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .about-box h3 {
+            margin: 0 0 8px;
+            font-size: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-box p {
+            margin: 0 0 10px;
+            color: #555;
+        }
+
+        .about-box .links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .about-box a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .about-box a:hover {
+            text-decoration: underline;
+        }
+
+        .about-box .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+
+        .about-box .close-btn:hover {
+            color: #333;
+        }
+
+        .about-box.minimized {
+            max-width: auto;
+            padding: 8px 12px;
+        }
+
+        .about-box.minimized p,
+        .about-box.minimized .links {
+            display: none;
+        }
+
+        .about-box.minimized h3 {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .verbund-label {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            font-size: 11px;
+            font-weight: 600;
+            color: #333;
+            text-shadow:
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff,
+                0 0 3px #fff;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .verbund-label:hover {
+            color: #000;
+            text-shadow:
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff,
+                0 0 6px #fff;
+        }
+
+        .verbund-label.small {
+            font-size: 9px;
+        }
+
+        .search-box {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            min-width: 220px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: #0066cc;
+        }
+
+        .search-box input::placeholder {
+            color: #999;
+        }
+
+        .search-results {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 8px;
+        }
+
+        .search-results:empty {
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .search-result-item:hover {
+            background: #f0f0f0;
+        }
+
+        .search-result-item .org {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .search-result-item .label {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .search-no-results {
+            padding: 8px 10px;
+            color: #999;
+            font-size: 12px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Lade Verbundkarte...</p>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // Farbpalette und Labels für Verbund-Typen
+        const typeColors = {
+            'agency': '#3498db',      // Blau - Verkehrsverbund
+            'utility': '#e74c3c',     // Rot - Stadtwerke
+            'company': '#9b59b6',     // Lila - Unternehmen
+            'district': '#95a5a6',    // Grau - Landkreis
+            'city': '#f39c12',        // Orange - Stadt
+            'default': '#2ecc71'      // Grün - Standard
+        };
+
+        const typeLabels = {
+            'agency': 'Verkehrsverbund',
+            'utility': 'Stadtwerke',
+            'company': 'Verkehrsunternehmen',
+            'district': 'Landkreis',
+            'city': 'Stadt'
+        };
+
+        // Länder-Codes aus amtlichen Kreisschlüsseln (erste zwei Stellen)
+        const statePrefixes = {
+            '01': 'Schleswig-Holstein',
+            '02': 'Hamburg',
+            '03': 'Niedersachsen',
+            '04': 'Bremen',
+            '05': 'Nordrhein-Westfalen',
+            '06': 'Hessen',
+            '07': 'Rheinland-Pfalz',
+            '08': 'Baden-Württemberg',
+            '09': 'Bayern',
+            '10': 'Saarland',
+            '11': 'Berlin',
+            '12': 'Brandenburg',
+            '13': 'Mecklenburg-Vorpommern',
+            '14': 'Sachsen',
+            '15': 'Sachsen-Anhalt',
+            '16': 'Thüringen'
+        };
+
+        // Karte initialisieren - Zentrum auf Deutschland
+        const map = L.map('map').setView([51.1657, 10.4515], 6);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            className: 'basemap-light',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende | <a href="https://github.com/highsource/verbundkarte">Verbundkarte</a>'
+        }).addTo(map);
+
+        // Info-Box für Hover
+        const info = L.control({ position: 'topright' });
+
+        info.onAdd = function(map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+
+        info.update = function(props) {
+            if (props) {
+                const typeBadge = props.type ? `<span class="type-badge" style="background: ${typeColors[props.type] || typeColors.default}20; color: ${typeColors[props.type] || typeColors.default}">${typeLabels[props.type] || props.type}</span>` : '';
+                this._div.innerHTML = `
+                    <h4>${props.name || props.org || 'Unbekannt'}</h4>
+                    ${typeBadge}
+                    ${props.tdLabel ? `<p><strong>Wikidata:</strong> ${props.tdLabel}</p>` : ''}
+                `;
+            } else {
+                this._div.innerHTML = '<p><em>Verbund auswählen für Details</em></p>';
+            }
+        };
+
+        info.addTo(map);
+
+        // About-Box
+        const aboutBox = L.control({ position: 'bottomleft' });
+
+        aboutBox.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'about-box');
+            div.id = 'about-box-content';
+            div.innerHTML = `
+                <button class="close-btn" onclick="this.parentElement.classList.toggle('minimized')" title="Minimieren">−</button>
+                <h3 onclick="this.parentElement.classList.remove('minimized')">🚌 Verbundkarte</h3>
+                <p>Interaktive Karte der Verkehrs- und Tarifverbünde in Deutschland.
+                   Die Daten werden aus offiziellen Quellen und Wikidata zusammengeführt.</p>
+                <p id="data-date" style="font-size: 11px; color: #888; margin-top: 6px;">📅 Datenstand: ...</p>
+                <div class="links">
+                    <a href="https://github.com/highsource/verbundkarte" target="_blank" rel="noopener">📂 GitHub</a>
+                    <a href="https://github.com/highsource/verbundkarte/blob/master/data/authorities.csv" target="_blank" rel="noopener">📋 Daten</a>
+                    <a href="https://github.com/highsource/verbundkarte/issues" target="_blank" rel="noopener">🐛 Feedback</a>
+                </div>
+            `;
+
+            // Prevent map interactions when clicking the box
+            L.DomEvent.disableClickPropagation(div);
+            L.DomEvent.disableScrollPropagation(div);
+
+            return div;
+        };
+
+        aboutBox.addTo(map);
+
+        // Datum aus GeoJSON-Metadaten formatieren
+        function formatDateFromMetadata(dateStr) {
+            if (!dateStr) return 'unbekannt';
+            const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                           'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            const parts = dateStr.split('-');
+            if (parts.length >= 3) {
+                const year = parts[0];
+                const month = parseInt(parts[1], 10) - 1;
+                const day = parseInt(parts[2], 10);
+                return `${day}. ${months[month]} ${year}`;
+            }
+            return dateStr;
+        }
+
+        // Legende mit Filter-Checkboxen
+        const legend = L.control({ position: 'bottomright' });
+
+        // Aktive Filter (alle standardmäßig an)
+        const activeFilters = {
+            'agency': true,
+            'utility': true,
+            'company': true,
+            'district': true,
+            'city': true
+        };
+
+        let activeState = null; // Bundesland-Filter (Kürzel gemäß statePrefixes)
+        let typeCounts = {};    // wird nach Daten-Ladung befüllt
+
+        legend.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML = '<h4>Filter</h4>';
+
+            for (const [type, color] of Object.entries(typeColors)) {
+                if (type !== 'default' && typeLabels[type]) {
+                    div.innerHTML += `
+                        <label class="legend-item" data-type="${type}">
+                            <input type="checkbox" checked data-type="${type}">
+                            <span class="legend-color" style="background: ${color}"></span>
+                            <span class="legend-label">${typeLabels[type]}</span>
+                            <span class="legend-count" data-type="${type}"></span>
+                        </label>
+                    `;
+                }
+            }
+
+            // Bundesland-Filter (Dropdown)
+            const stateOptions = Object.entries(statePrefixes)
+                .map(([code, name]) => `<option value="${code}">${name}</option>`)
+                .join('');
+
+            div.innerHTML += `
+                <div class="legend-item" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+                    <span style="font-size: 12px; color: #555;">Bundesland</span>
+                    <select id="state-filter" style="width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px;">
+                        <option value="">Alle</option>
+                        ${stateOptions}
+                    </select>
+                </div>
+            `;
+
+            // Event-Handler für Checkboxen
+            L.DomEvent.disableClickPropagation(div);
+
+            div.addEventListener('change', function(e) {
+                if (e.target.type === 'checkbox') {
+                    const type = e.target.dataset.type;
+                    if (type) {
+                        activeFilters[type] = e.target.checked;
+                        e.target.parentElement.classList.toggle('disabled', !e.target.checked);
+                        updateVisibility();
+                    }
+                }
+            });
+
+            // Event-Handler für Bundesland-Filter
+            const stateSelect = div.querySelector('#state-filter');
+            if (stateSelect) {
+                stateSelect.addEventListener('change', function() {
+                    activeState = this.value || null;
+                    updateVisibility();
+                });
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
+        function getStateCodes(feature) {
+            const props = feature?.properties || {};
+            if (Array.isArray(props.state_codes) && props.state_codes.length) {
+                return props.state_codes.map(String);
+            }
+            const kreis = props.kreis || props.kreis_list;
+            const asArray = Array.isArray(kreis) ? kreis : (kreis ? [kreis] : []);
+            return asArray.map(k => k.toString().slice(0, 2)).filter(Boolean);
+        }
+
+        function computeTypeCounts(features) {
+            const counts = {};
+            features.forEach(f => {
+                const t = f.properties?.type || 'default';
+                counts[t] = (counts[t] || 0) + 1;
+            });
+            return counts;
+        }
+
+        function renderTypeCounts(counts) {
+            document.querySelectorAll('.legend-count').forEach(el => {
+                const t = el.dataset.type;
+                const value = counts[t] ?? 0;
+                el.textContent = ` (${value})`;
+            });
+        }
+
+        function updateLegendCounts() {
+            if (!window.geojsonData) return;
+            const counts = {};
+            Object.keys(typeColors).forEach(t => {
+                if (t !== 'default') counts[t] = 0;
+            });
+            window.geojsonData.features.forEach(f => {
+                if (!isFeatureVisible(f)) return;
+                const t = f.properties?.type || 'default';
+                if (counts[t] === undefined && t !== 'default') counts[t] = 0;
+                if (counts[t] !== undefined) counts[t] += 1;
+            });
+            renderTypeCounts(counts);
+        }
+
+        // Suchfeld
+        const searchBox = L.control({ position: 'topleft' });
+
+        searchBox.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'search-box');
+            div.innerHTML = `
+                <input type="text" id="search-input" placeholder="🔍 Verbund suchen...">
+                <div id="search-results" class="search-results"></div>
+            `;
+
+            L.DomEvent.disableClickPropagation(div);
+            L.DomEvent.disableScrollPropagation(div);
+
+            return div;
+        };
+
+        searchBox.addTo(map);
+
+        // Suchfunktion
+        function setupSearch() {
+            const input = document.getElementById('search-input');
+            const resultsDiv = document.getElementById('search-results');
+
+            input.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                resultsDiv.innerHTML = '';
+
+                if (query.length < 2) return;
+
+                const matches = window.geojsonData.features.filter(f => {
+                    const org = (f.properties.org || '').toLowerCase();
+                    const tdLabel = (f.properties.tdLabel || '').toLowerCase();
+                    const name = (f.properties.name || '').toLowerCase();
+                    return org.includes(query) || tdLabel.includes(query) || name.includes(query);
+                }).slice(0, 10);  // Max 10 Ergebnisse
+
+                if (matches.length === 0) {
+                    resultsDiv.innerHTML = '<div class="search-no-results">Keine Treffer</div>';
+                    return;
+                }
+
+                matches.forEach(feature => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.innerHTML = `
+                        <span class="org">${feature.properties.org || '–'}</span>
+                        <span class="label">${feature.properties.tdLabel || feature.properties.name || ''}</span>
+                    `;
+                    item.addEventListener('click', () => {
+                        selectVerbund(feature.properties.org);
+                        input.value = '';
+                        resultsDiv.innerHTML = '';
+                    });
+                    resultsDiv.appendChild(item);
+                });
+            });
+
+            // Escape schließt Suchergebnisse
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    this.value = '';
+                    resultsDiv.innerHTML = '';
+                    this.blur();
+                }
+                if (e.key === 'Enter' && resultsDiv.children.length > 0) {
+                    const firstResult = resultsDiv.querySelector('.search-result-item');
+                    if (firstResult) firstResult.click();
+                }
+            });
+        }
+
+        // Verbund auswählen (für Suche und URL-Hash)
+        function selectVerbund(org) {
+            const layer = orgToLayer[org];
+            if (layer && isFeatureVisible(layer.feature)) {
+                map.fitBounds(layer.getBounds(), { padding: [50, 50] });
+                // Popup nach fitBounds öffnen (kleine Verzögerung für Animation)
+                setTimeout(() => layer.openPopup(), 300);
+                // URL-Hash aktualisieren
+                history.replaceState(null, '', '#' + encodeURIComponent(org));
+            }
+        }
+
+        // URL-Hash beim Laden prüfen
+        function checkUrlHash() {
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            if (hash && orgToLayer[hash]) {
+                // Verzögerung damit die Karte fertig geladen ist
+                setTimeout(() => selectVerbund(hash), 500);
+            }
+        }
+
+        // Hash-Änderungen überwachen
+        window.addEventListener('hashchange', function() {
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            if (hash && orgToLayer[hash]) {
+                selectVerbund(hash);
+            }
+        });
+
+        // Style für GeoJSON Features
+        function getStyle(feature) {
+            const type = feature.properties.type || 'default';
+            return {
+                fillColor: typeColors[type] || typeColors.default,
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.5  // Etwas transparenter für bessere Überlappungs-Sichtbarkeit
+            };
+        }
+
+        // Prüfen ob ein Feature sichtbar ist
+        function isFeatureVisible(feature) {
+            const type = feature.properties.type || 'default';
+            if (activeFilters[type] === false) return false;
+            if (activeState) {
+                const codes = getStateCodes(feature);
+                if (!codes.includes(activeState)) return false;
+            }
+            return true;
+        }
+
+        // Highlight beim Hover
+        function highlightFeature(e) {
+            const layer = e.target;
+
+            // Nicht highlighten wenn durch Filter ausgeblendet
+            if (!isFeatureVisible(layer.feature)) return;
+
+            layer.setStyle({
+                weight: 3,
+                color: '#333',
+                fillOpacity: 0.75
+            });
+            layer.bringToFront();
+            info.update(layer.feature.properties);
+        }
+
+        function resetHighlight(e) {
+            const layer = e.target;
+            const type = layer.feature.properties.type || 'default';
+
+            // Wenn durch Filter ausgeblendet, unsichtbar halten
+            if (!isFeatureVisible(layer.feature)) {
+                layer.setStyle({
+                    fillOpacity: 0,
+                    opacity: 0
+                });
+            } else {
+                geojsonLayer.resetStyle(layer);
+            }
+            info.update();
+        }
+
+        // Sichtbarkeit basierend auf Filter aktualisieren
+        function updateVisibility() {
+            if (!geojsonLayer) return;
+
+            geojsonLayer.eachLayer(function(layer) {
+                const isVisible = isFeatureVisible(layer.feature);
+
+                if (isVisible) {
+                    layer.setStyle({
+                        fillOpacity: 0.5,
+                        opacity: 1
+                    });
+                } else {
+                    layer.setStyle({
+                        fillOpacity: 0,
+                        opacity: 0
+                    });
+                }
+            });
+
+            // Labels aktualisieren
+            if (window.geojsonData) {
+                createLabels(window.geojsonData);
+                updateLegendCounts();
+            }
+        }
+
+        // Popup-Inhalt erstellen
+        function createPopupContent(props) {
+            const type = props.type || 'default';
+            const color = typeColors[type] || typeColors.default;
+
+            let html = `<div class="popup-content">
+                <h3>${props.name || props.org || 'Unbekannt'}${props.org && props.name ? ` – ${props.org}` : ''}</h3>`;
+
+            if (props.type) {
+                html += `<span class="type-badge" style="background: ${color}20; color: ${color}">${typeLabels[props.type] || props.type}</span>`;
+            }
+
+            if (props.shortName && props.shortName !== props.org) {
+                html += `<p><strong>Kurzname:</strong> ${props.shortName}</p>`;
+            }
+
+            html += '<div class="links">';
+
+            if (props.officalWebsite) {
+                html += `<a href="${props.officalWebsite}" target="_blank" rel="noopener">🌐 Website</a>`;
+            }
+
+            if (props.wikidata && props.wikidata !== '-') {
+                html += `<a href="https://www.wikidata.org/wiki/${props.wikidata}" target="_blank" rel="noopener">📚 Wikidata</a>`;
+            }
+
+            if (props.twitterUserName) {
+                html += `<a href="https://twitter.com/${props.twitterUserName}" target="_blank" rel="noopener">🐦 Twitter</a>`;
+            }
+
+            html += '</div></div>';
+
+            return html;
+        }
+
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: function(e) {
+                    map.fitBounds(e.target.getBounds(), { padding: [50, 50] });
+                    // URL-Hash setzen
+                    if (feature.properties.org) {
+                        history.replaceState(null, '', '#' + encodeURIComponent(feature.properties.org));
+                    }
+                }
+            });
+
+            layer.bindPopup(createPopupContent(feature.properties), {
+                maxWidth: 300
+            });
+        }
+
+        let geojsonLayer;
+        let labelsLayer = L.layerGroup().addTo(map);
+
+        // Mapping von org zu GeoJSON-Layer für Label-Interaktion
+        const orgToLayer = {};
+
+        // Labels für Verbünde erstellen
+        function createLabels(data) {
+            labelsLayer.clearLayers();
+
+            data.features.forEach(feature => {
+                if (!feature.geometry || !feature.properties.org) return;
+
+                if (!isFeatureVisible(feature)) return;
+
+                // Zentrum der Geometrie berechnen
+                const tempLayer = L.geoJSON(feature);
+                const bounds = tempLayer.getBounds();
+                if (!bounds.isValid()) return;
+
+                const center = bounds.getCenter();
+                const org = feature.properties.org;
+
+                // Größe des Bereichs für Schriftgröße
+                const size = JSON.stringify(feature.geometry).length;
+                const labelClass = size < 5000 ? 'verbund-label small' : 'verbund-label';
+
+                const label = L.marker(center, {
+                    icon: L.divIcon({
+                        className: labelClass,
+                        html: org,
+                        iconSize: null
+                    })
+                });
+
+                // Feature-Daten am Label speichern
+                label.feature = feature;
+
+                // Event-Handler für Label
+                label.on('mouseover', function() {
+                    const geoLayer = orgToLayer[org];
+                    if (geoLayer && isFeatureVisible(feature)) {
+                        geoLayer.setStyle({
+                            weight: 3,
+                            color: '#333',
+                            fillOpacity: 0.75
+                        });
+                        geoLayer.bringToFront();
+                        info.update(feature.properties);
+                    }
+                });
+
+                label.on('mouseout', function() {
+                    const geoLayer = orgToLayer[org];
+                    if (geoLayer && isFeatureVisible(feature)) {
+                        geojsonLayer.resetStyle(geoLayer);
+                    }
+                    info.update();
+                });
+
+                label.on('click', function() {
+                    const geoLayer = orgToLayer[org];
+                    if (geoLayer && isFeatureVisible(feature)) {
+                        map.fitBounds(geoLayer.getBounds(), { padding: [50, 50] });
+                        geoLayer.openPopup();
+                    }
+                });
+
+                labelsLayer.addLayer(label);
+            });
+        }
+
+        // Labels bei Zoom-Level ein/ausblenden
+        map.on('zoomend', function() {
+            const zoom = map.getZoom();
+            if (zoom >= 7) {
+                labelsLayer.addTo(map);
+            } else {
+                labelsLayer.remove();
+            }
+        });
+
+        // GeoJSON laden
+        fetch('verbundkarte.geojson')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('GeoJSON konnte nicht geladen werden');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Datum aus Metadaten anzeigen
+                if (data.metadata && data.metadata.generated) {
+                    const dateEl = document.getElementById('data-date');
+                    if (dateEl) {
+                        dateEl.textContent = '📅 Datenstand: ' + formatDateFromMetadata(data.metadata.generated);
+                    }
+                }
+
+                // Features nach Fläche sortieren (große zuerst, kleine oben)
+                // So sind kleinere Verbünde besser sichtbar bei Überlappungen
+                data.features.sort((a, b) => {
+                    const areaA = a.geometry ? JSON.stringify(a.geometry).length : 0;
+                    const areaB = b.geometry ? JSON.stringify(b.geometry).length : 0;
+                    return areaB - areaA;  // Große zuerst (werden unten gezeichnet)
+                });
+
+                geojsonLayer = L.geoJSON(data, {
+                    style: getStyle,
+                    onEachFeature: function(feature, layer) {
+                        // Mapping für Label-Interaktion aufbauen
+                        if (feature.properties.org) {
+                            orgToLayer[feature.properties.org] = layer;
+                        }
+                        // Standard onEachFeature aufrufen
+                        onEachFeature(feature, layer);
+                    }
+                }).addTo(map);
+
+                // Labels erstellen
+                window.geojsonData = data;  // Für spätere Aktualisierung
+                typeCounts = computeTypeCounts(data.features);
+                renderTypeCounts(typeCounts);
+                createLabels(data);
+
+                // Auf Daten zoomen
+                if (geojsonLayer.getBounds().isValid()) {
+                    map.fitBounds(geojsonLayer.getBounds(), { padding: [20, 20] });
+                }
+
+                // Loading ausblenden
+                document.getElementById('loading').classList.add('hidden');
+
+                // Suche aktivieren und URL-Hash prüfen
+                setupSearch();
+                checkUrlHash();
+
+                console.log(`${data.features.length} Verbünde geladen`);
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden:', error);
+                document.getElementById('loading').innerHTML = `
+                    <p style="color: #e74c3c; font-size: 16px;">
+                        ⚠️ Fehler beim Laden der Daten<br>
+                        <small style="color: #666;">Bitte führen Sie erst <code>python merge.py</code> aus.</small>
+                    </p>
+                `;
+            });
+    </script>
+</body>
+</html>
