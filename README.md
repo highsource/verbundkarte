@@ -16,6 +16,10 @@ Dieses Projekt wurde von [Alexey Valikov (🕯️)](https://good-bye.org/alexey-
 
 ![Verfügbarkeit der Fahrpläne](Bilder/Verfügbarkeit-der-Fahrpläne.png)
 
+## Interaktive Web-Karte
+
+Eine interaktive Version der Karte ist über GitHub Pages verfügbar: https://highsource.github.io/verbundkarte/
+
 ## Offene Fahrpläne
 
 Links:
@@ -169,8 +173,27 @@ Verbundkarte\DE\SH\download.bat
 
 * via `pip install -r requirements.txt` Geopandas und SPARQLWrapper installieren
 * via `python3 merge.py` aufrufen, welches Informationen den CSV-Dateien `data/assignments.csv` und `data/authorities.csv` mit adhoc vom BKG runtergeladenen 
-Geometrie-Informationen zusammenführt. Ergebnis wird nach `out/authorities_enhanced.csv` geschrieben. Hinweis: die Verwaltungsgrenzen unterliegen der DE-DL/BY-2.0, Quellenvermerk `© GeoBasis-DE / BKG (<Jahr des Bezugs>)`
-* via QGIS kann eine Kartendarstellung (vorerst manuell) erzeugt und gespeichert werden. 
+Geometrie-Informationen zusammenführt. Ergebnis wird nach `out/authorities_enhanced.geojson` geschrieben. Hinweis: die Verwaltungsgrenzen unterliegen der DE-DL/BY-2.0, Quellenvermerk `© GeoBasis-DE / BKG (<Jahr des Bezugs>)`
+* via QGIS kann eine Kartendarstellung (vorerst manuell) erzeugt und gespeichert werden.
+
+### Interaktive Web-Karte (GitHub Pages)
+
+Das Script `merge.py` erzeugt zusätzlich die Datei `docs/verbundkarte.geojson`, die von der interaktiven Web-Karte verwendet wird.
+
+**Daten aktualisieren:**
+
+1. `python3 merge.py` ausführen
+2. Änderungen committen und pushen
+3. GitHub Pages aktualisiert sich automatisch
+
+**Datenquellen:**
+
+- `data/authorities.csv` – Liste aller Verbünde mit Wikidata-IDs
+- `data/assignments.csv` – Zuordnung von Landkreisen (ARS) zu Verbünden
+- BKG WFS-Service – Verwaltungsgrenzen (Geometrien)
+- Wikidata SPARQL – Zusätzliche Informationen (Website, Kurzname, etc.)
+
+Der Datenstand/Ausführungszeitpunkt wird als Metadatum in der GeoJSON-Datei gespeichert und in der Web-Karte angezeigt. 
 
 # Lizenz
 
